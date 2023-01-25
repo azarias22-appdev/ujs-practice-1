@@ -14,6 +14,9 @@ class TasksTest < ApplicationSystemTestCase
     visit tasks_url
     click_on "New Task"
 
+    fill_in "Content", with: @task.content
+    fill_in "Status", with: @task.status
+    fill_in "User", with: @task.user_id
     click_on "Create Task"
 
     assert_text "Task was successfully created"
@@ -24,6 +27,9 @@ class TasksTest < ApplicationSystemTestCase
     visit tasks_url
     click_on "Edit", match: :first
 
+    fill_in "Content", with: @task.content
+    fill_in "Status", with: @task.status
+    fill_in "User", with: @task.user_id
     click_on "Update Task"
 
     assert_text "Task was successfully updated"
